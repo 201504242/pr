@@ -11,11 +11,18 @@ namespace BancoGT
     public class Operaciones
     {
         //la tuya
-        String conexion = "data source=DESKTOP-N6I4NNI\\SQLEXPRESS;Initial Catalog=practica35;Integrated Security=True";
+        //String conexion = "data source=DESKTOP-N6I4NNI\\SQLEXPRESS;Initial Catalog=practica35;Integrated Security=True";
         //esta es la mia
-       // String conexion = "data source=LAPTOP-L3B97VHK\\SQLEXPRESS;Initial Catalog=practica35;Integrated Security=True";
+        String conexion = "data source=LAPTOP-L3B97VHK\\SQLEXPRESS;Initial Catalog=practica35;Integrated Security=True";
         SqlConnection con;
-
+        public int metodoTest(int n1,int n2)
+        {
+            if (n1 >= n2)
+            {
+                return 1;
+            }
+            return 0;
+        }
         public DataSet consultar_usuario(string usuario, string password, int id_usuario)
         {
             DataSet ds = new DataSet();
