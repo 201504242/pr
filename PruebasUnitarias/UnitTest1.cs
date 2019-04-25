@@ -11,7 +11,7 @@ namespace PruebasUnitarias
         public void TestMethod1()
         {
             Operaciones s = new Operaciones();
-            var n1 = 11;
+            var n1 = 10000;
             var n2 = 5;
             int resEsperado = 1;
 
