@@ -19,8 +19,9 @@ namespace BancoGT
             System.Web.HttpContext.Current.Session["codigo"] = "----";
         }
 
-        public void CrearUsuario()
+        public int CrearUsuario()
         {
+            int vari = 1;
             String usua = txtusuario.Text;
             String pass = txtcontra.Text;
             var ArregloPass = pass.ToCharArray();
@@ -42,16 +43,19 @@ namespace BancoGT
             {
                 alerta.Text = "Error, falta numero o letra";
                 Console.WriteLine("Error, falta numero o letra");
+                vari = 0;
             }
             else if (ArregloUsua.Length > 12)
             {
                 alerta.Text = "Error, El nombre de usuario no debe ser mayor a 12 dígitos";
                 Console.WriteLine("Error");
+                vari = 0;
             }
             else if (ArregloPass.Length != 8)
             {
                 alerta.Text = "Error, Debe ser una contraseña alfanumérica de 8 dígitos.";
                 Console.WriteLine("Debe ser una contraseña alfanumérica de 8 dígitos.");
+                vari = 0;
             }
 
             else
@@ -63,6 +67,7 @@ namespace BancoGT
                 if (dato.Equals("-1"))
                 {
                     alerta.Text = "Error, Usuario ya existe";
+                    vari = 0;
                 }
                 else
                 {
@@ -70,12 +75,54 @@ namespace BancoGT
                     System.Web.HttpContext.Current.Session["codigo"] = dato;
                     System.Web.HttpContext.Current.Session["cuenta"] = ds.Tables[0].Rows[0][1].ToString();
                     System.Web.HttpContext.Current.Session["tipo"] = "1";
+                    vari = 1;
                     Response.Redirect("Default.aspx");
                 }                
             }
+            return vari;
         }
 
-        protected void registro_click(object sender, EventArgs e)
+        public int CrearUsuarioTest(string n1, string n2)
+        {
+            int vari = 1;
+            String usua = n1;
+            String pass = n2;
+            var ArregloPass = pass.ToCharArray();
+            var ArregloUsua = usua.ToCharArray();
+            bool contNum = false;
+            bool contString = false;
+            foreach (char item in n1)
+            {
+                if (Char.IsNumber(item))
+                {
+                    contNum = true;
+                }
+                else if (Char.IsLetter(item))
+                {
+                    contString = true;
+                }
+            }
+            if (!contString || !contNum)
+            {
+                vari = 0;
+            }
+            else if (ArregloUsua.Length > 12)
+            {
+                vari = 0;
+            }
+            else if (ArregloPass.Length != 8)
+            {
+                vari = 0;
+            }
+
+            else
+            {
+                vari = 1;
+            }
+            return vari;
+        }
+
+        private void registro_click(object sender, EventArgs e)
         {
             CrearUsuario();
         }
