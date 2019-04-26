@@ -25,10 +25,14 @@ namespace BancoGT
             GridView1.DataBind();
         }
 
-        public string verficarEstadoTest(string ccuenta)
+        public object verficarEstadoTest(string ccuenta)
         {
             ds = op.EstadoCuenta(Convert.ToInt32(ccuenta));
-            return "";
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                Console.WriteLine( row[0]);
+            }
+            return ds;
         }
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
