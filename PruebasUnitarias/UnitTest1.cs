@@ -37,7 +37,7 @@ namespace PruebasUnitarias
         public void Registro_Test()
         {
             Inicio i = new Inicio();
-            var n1 = "Cliente";
+            var n1 = "Cliente1";
             var n2 = "12345678";
             String resEsperado = "si";
             var resObtenido = i.CrearUsuarioTest(n1,n2);
