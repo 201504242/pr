@@ -27,16 +27,23 @@ namespace BancoGT
 
         public object verficarEstadoTest(string ccuenta)
         {
-            ds = op.EstadoCuenta(Convert.ToInt32(ccuenta));
-            foreach (DataRow row in ds.Tables[0].Rows)
+            try
             {
-                for (int f = 0; f < row.ItemArray.Count(); f++)
+                ds = op.EstadoCuenta(Convert.ToInt32(ccuenta));
+                foreach (DataRow row in ds.Tables[0].Rows)
                 {
-                    Console.WriteLine(row.ItemArray.ElementAt(f));
+                    for (int f = 0; f < row.ItemArray.Count(); f++)
+                    {
+                        Console.Write(row.ItemArray.ElementAt(f));
+                    }
+                    Console.WriteLine("");
                 }
-                    
             }
-            return ds;
+            catch (Exception)
+            {
+                return "";    
+            }
+            return "ok";
         }
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {

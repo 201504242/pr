@@ -25,10 +25,11 @@ namespace PruebasUnitarias
         {
             Estado_Cuenta i = new Estado_Cuenta();
             var cuenta = "2";
-            var resEsperado = "";
+            var resEsperado = "ok";
+            Console.Write("Correlativa | Cuenta | Tipo | Monto | Movimiento | Fecha");
             var resObtenido = i.verficarEstadoTest(cuenta);
-            Console.WriteLine("ojla");
-           // Assert.AreEqual(resEsperado, resObtenido);
+            
+            Assert.AreEqual(resEsperado, resObtenido);
         }
 
         [TestMethod]
