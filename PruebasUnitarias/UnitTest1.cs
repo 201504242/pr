@@ -1,15 +1,27 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BancoGT;
+using System.IO;
+using System.Text;
 
 namespace PruebasUnitarias
 {
     [TestClass]
     public class UnitTest1
     {
+        string fileName = @"result.txt";
+        public void crearArchivo(String textp)
+        {
+            using (StreamWriter fs = File.AppendText(fileName))
+            {   
+                fs.WriteLine(textp);
+            }
+        }
+
+
         [TestMethod]
         public void TestMethod1()
-        {
+        {            
             Operaciones s = new Operaciones();
             var n1 = 10000;
             var n2 = 5;
