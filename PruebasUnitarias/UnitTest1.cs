@@ -20,16 +20,15 @@ namespace PruebasUnitarias
             
         }
 
-
         [TestMethod]
-        public void TestMethod1()
-        {            
-            Operaciones s = new Operaciones();
-            var n1 = 10000;
-            var n2 = 5;
-            int resEsperado = 1;
-
-            var resObtenido = s.metodoTest(n1, n2);
+        public void Debito_Test()
+        {
+            Debito i = new Debito();
+            var cuenta = 1;
+            var monto = 1;
+            int correlativo = 8;
+            var resEsperado = 1;
+            var resObtenido = i.testDebito(correlativo, cuenta, monto);
             Assert.AreEqual(resEsperado, resObtenido);
         }
 

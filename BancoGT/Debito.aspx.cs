@@ -35,5 +35,19 @@ namespace BancoGT
             Response.Redirect("Debito");
             alerta.Text = "Se han debitado Q" + monton + "a la cuenta: " + cuenta;
         }
+
+        public int testDebito(int correlativo,int cuenta,double monton)
+        {
+            try
+            {
+                op.debitar(cuenta, monton, correlativo);
+                return 1;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+            
+        }
     }
 }
