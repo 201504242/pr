@@ -60,7 +60,7 @@ namespace PruebasUnitarias
             Inicio i = new Inicio();
             var n1 = "Cliente1";
             var n2 = "12345678";
-            int resEsperado = 1;
+            string resEsperado = "si";
 
             var resObtenido = i.CrearUsuarioTest(n1, n2);
             Assert.AreEqual(resEsperado, resObtenido);
