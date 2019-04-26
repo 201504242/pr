@@ -101,6 +101,32 @@ namespace PruebasUnitarias
         }
 
         [TestMethod]
+        public void credito_Test()
+        {
+            Adminstrador i = new Adminstrador();
+            string usuario = "cliente1";
+            string monto = "2000";
+            string descripcion = "varios";
+            int correlativo = 3;//cambaiar este numero
+            int cuenta = 1;
+            double montoSumar = 2000;
+
+            string resEsperado = "ok";
+
+            var resObtenido = i.creditoTest(usuario,monto,descripcion,correlativo,cuenta,montoSumar);
+
+            if (!resEsperado.Equals(resObtenido))
+            {
+                concat("");
+                concat("***************************************************");
+                concat("TEST Solicitud de Credito FALLO");
+                concat("***************************************************");
+                concat("");
+            }
+            Assert.AreEqual(resEsperado, resObtenido);
+        }
+
+        [TestMethod]
         public void consultarSaldo_Test()
         {
             Inicio i = new Inicio();

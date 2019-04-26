@@ -14,6 +14,7 @@ namespace BancoGT
         {
 
         }
+        
         protected void credito_click(object sender, EventArgs e)
         {
             string monto = txtmonto_credito.Text;

@@ -41,7 +41,26 @@ namespace BancoGT
         {
 
         }
-        
+
+        public String creditoTest(string usuario, string monto, string descripcion,
+            int correlativo,int cuenta,double montoSumar)
+        {
+            try
+            {
+                op.insertaCredito(
+                descripcion,
+                usuario,
+                Int32.Parse(monto));
+                op.aceptarCredito(correlativo, cuenta, montoSumar);
+                return "ok";
+            }
+            catch (Exception)
+            {
+                return "Error!";
+            }
+            
+
+        }
 
         protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
         {
@@ -50,8 +69,9 @@ namespace BancoGT
             int cuenta = Int32.Parse(row.Cells[2].Text);
             double monton = Double.Parse(row.Cells[3].Text);
             op.aceptarCredito(correlativo,cuenta,monton);
-            Response.Redirect("Adminstrador");
             alerta.Text = "Se han Cargado Q" + monton;
+            Response.Redirect("Adminstrador");
+            
             
 
         }
