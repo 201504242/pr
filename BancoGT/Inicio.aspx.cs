@@ -19,9 +19,9 @@ namespace BancoGT
             System.Web.HttpContext.Current.Session["codigo"] = "----";
         }
 
-        public int CrearUsuario()
+        public string CrearUsuario()
         {
-            int vari = 1;
+            string vari = "si";
             String usua = txtusuario.Text;
             String pass = txtcontra.Text;
             var ArregloPass = pass.ToCharArray();
@@ -43,19 +43,19 @@ namespace BancoGT
             {
                 alerta.Text = "Error, falta numero o letra";
                 Console.WriteLine("Error, falta numero o letra");
-                vari = 0;
+                
             }
             else if (ArregloUsua.Length > 12)
             {
                 alerta.Text = "Error, El nombre de usuario no debe ser mayor a 12 dígitos";
                 Console.WriteLine("Error");
-                vari = 0;
+                
             }
             else if (ArregloPass.Length != 8)
             {
                 alerta.Text = "Error, Debe ser una contraseña alfanumérica de 8 dígitos.";
                 Console.WriteLine("Debe ser una contraseña alfanumérica de 8 dígitos.");
-                vari = 0;
+                
             }
 
             else
@@ -67,7 +67,7 @@ namespace BancoGT
                 if (dato.Equals("-1"))
                 {
                     alerta.Text = "Error, Usuario ya existe";
-                    vari = 0;
+                    
                 }
                 else
                 {
@@ -75,16 +75,16 @@ namespace BancoGT
                     System.Web.HttpContext.Current.Session["codigo"] = dato;
                     System.Web.HttpContext.Current.Session["cuenta"] = ds.Tables[0].Rows[0][1].ToString();
                     System.Web.HttpContext.Current.Session["tipo"] = "1";
-                    vari = 1;
+                    
                     Response.Redirect("Default.aspx");
                 }                
             }
             return vari;
         }
 
-        public int CrearUsuarioTest(string n1, string n2)
+        public String CrearUsuarioTest(string n1, string n2)
         {
-            int vari = 1;
+            string vari = "si";
             String usua = n1;
             String pass = n2;
             var ArregloPass = pass.ToCharArray();
@@ -104,20 +104,21 @@ namespace BancoGT
             }
             if (!contString || !contNum)
             {
-                vari = 0;
+                vari = "Error, falta numero o letra";
+
             }
             else if (ArregloUsua.Length > 12)
             {
-                vari = 0;
+                vari = "Error, El nombre de usuario no debe ser mayor a 12 dígitos";
             }
             else if (ArregloPass.Length != 8)
             {
-                vari = 0;
+                vari = "Error, Debe ser una contraseña alfanumérica de 8 dígitos.";
             }
 
             else
             {
-                vari = 1;
+                vari = "si";                
             }
             return vari;
         }

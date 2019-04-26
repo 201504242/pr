@@ -39,13 +39,16 @@ namespace PruebasUnitarias
             Inicio i = new Inicio();
             var n1 = "Cliente";
             var n2 = "12345678";
-            int resEsperado = 1;
+            String resEsperado = "si";
             var resObtenido = i.CrearUsuarioTest(n1,n2);
-            if (resEsperado != resObtenido)
+            if (!resEsperado.Equals(resObtenido))
             {
+                concat("");
                 concat("***************************************************");
                 concat("TEST REGISTRO FALLO");
+                concat("Motivo: "+resObtenido);
                 concat("***************************************************");
+                concat("");
             }
             Assert.AreEqual(resEsperado, resObtenido);
             
