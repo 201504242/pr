@@ -76,5 +76,26 @@ namespace PruebasUnitarias
             }
             Assert.AreEqual(resEsperado, resObtenido);            
         }
+
+        [TestMethod]
+        public void consultarSaldo_Test()
+        {
+            Inicio i = new Inicio();
+            var usuario = "Cliente1";
+            String resEsperado = "Saldo:";
+
+            String resObtenido = i.consultarSaldoTest(usuario);
+
+            if (resEsperado.Equals(resObtenido))
+            {
+                concat("");
+                concat("***************************************************");
+                concat("TEST CONSULTAR SALDO FALLO");
+                concat("Motivo: No existe usuario o no tiene un saldo de 0");
+                concat("***************************************************");
+                concat("");
+            }            
+            Assert.AreNotEqual(resEsperado, resObtenido);
+        }
     }
 }

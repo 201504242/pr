@@ -1,8 +1,24 @@
-prueba2
 
 ***************************************************
-TEST LOGIN FALLO
-Motivo: Usuario o Password incorrecta
+TEST CONSULTAR SALDO FALLO
+Motivo: No existe usuario o no tiene un saldo de 0
 ***************************************************
 
-prueba2
+
+***************************************************
+TEST CONSULTAR SALDO FALLO
+Motivo: No existe usuario o no tiene un saldo de 0
+***************************************************
+
+
+***************************************************
+TEST CONSULTAR SALDO FALLO
+Motivo: No existe usuario o no tiene un saldo de 0
+***************************************************
+
+
+***************************************************
+TEST CONSULTAR SALDO FALLO
+Motivo: No existe usuario o no tiene un saldo de 0
+***************************************************
+

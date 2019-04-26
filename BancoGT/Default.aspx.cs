@@ -19,5 +19,7 @@ namespace BancoGT
             string ss = op.Saldito(System.Web.HttpContext.Current.Session["usuario"].ToString());
             saldo.Text = " Saldo:" +ss ;
         }
+
+        
     }
 }

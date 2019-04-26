@@ -159,4 +159,3 @@ C:\Users\p_ab1\Desktop\Analisis\pr\BancoGT\bin\Microsoft.Owin.Security.Microsoft
 C:\Users\p_ab1\Desktop\Analisis\pr\BancoGT\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\p_ab1\Desktop\Analisis\pr\BancoGT\obj\Debug\BancoGT.dll
 C:\Users\p_ab1\Desktop\Analisis\pr\BancoGT\obj\Debug\BancoGT.pdb
-C:\Users\p_ab1\Desktop\Analisis\pr\BancoGT\obj\Debug\BancoGT.csprojResolveAssemblyReference.cache

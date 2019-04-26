@@ -19,6 +19,12 @@ namespace BancoGT
             System.Web.HttpContext.Current.Session["codigo"] = "----";
         }
 
+        public String consultarSaldoTest(String usuario)
+        {
+            string ss = op.Saldito(usuario);
+            return "Saldo:" + ss;
+        }
+
         public string CrearUsuario()
         {
             string vari = "si";
