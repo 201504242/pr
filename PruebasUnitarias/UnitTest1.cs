@@ -4,6 +4,13 @@ using BancoGT;
 using System.IO;
 using System.Text;
 
+using PdfSharp;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using System.Data;
+using System.Drawing;
+using System.Diagnostics;
+
 namespace PruebasUnitarias
 {
     [TestClass]
@@ -42,6 +49,70 @@ namespace PruebasUnitarias
             var resEsperado = 1;
             var resObtenido = i.testDebito(correlativo, cuenta, monto);
             Assert.AreEqual(resEsperado, resObtenido);
+        }
+
+        [TestMethod]
+        public void PDF_Test()
+        {
+            Estado_Cuenta ii = new Estado_Cuenta();
+            var cuenta = "2";
+            var resEsperado = "ok";
+            DataSet ds = new DataSet();
+            ds = ii.imprimirTEST(cuenta);
+            try
+            {
+                int i = 0;
+                string sql = null;
+                int yPoint = 0;
+                string c1 = null;
+                string c2 = null;
+                string c3 = null;
+                string c4 = null;
+                string c5 = null;
+                string c6 = null;
+
+                PdfDocument pdf = new PdfDocument();
+                pdf.Info.Title = "Database to PDF";
+                PdfPage pdfPage = pdf.AddPage();
+                XGraphics graph = XGraphics.FromPdfPage(pdfPage);
+                XFont font = new XFont("Verdana", 10, XFontStyle.Regular);
+
+                graph.DrawString("Correlativo", font, XBrushes.Black, new XRect(40, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormat.TopLeft);
+                graph.DrawString("Cuenta", font, XBrushes.Black, new XRect(100, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormat.TopLeft);
+                graph.DrawString("Tipo", font, XBrushes.Black, new XRect(160, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormat.TopLeft);
+                graph.DrawString("Monto", font, XBrushes.Black, new XRect(220, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormat.TopLeft);
+                graph.DrawString("Movimiento", font, XBrushes.Black, new XRect(300, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormat.TopLeft);
+                graph.DrawString("Fecha", font, XBrushes.Black, new XRect(340, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormat.TopLeft);
+
+                yPoint = yPoint + 50;
+
+                for (i = 0; i <= ds.Tables[0].Rows.Count - 1; i++)
+                {
+                    c1 = ds.Tables[0].Rows[i].ItemArray[0].ToString();
+                    c2 = ds.Tables[0].Rows[i].ItemArray[1].ToString();
+                    c3 = ds.Tables[0].Rows[i].ItemArray[2].ToString();
+                    c4 = ds.Tables[0].Rows[i].ItemArray[3].ToString();
+                    c5 = ds.Tables[0].Rows[i].ItemArray[4].ToString();
+                    c6 = ds.Tables[0].Rows[i].ItemArray[5].ToString();
+
+                    graph.DrawString(c1, font, XBrushes.Black, new XRect(40, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormat.TopLeft);
+                    graph.DrawString(c2, font, XBrushes.Black, new XRect(100, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormat.TopLeft);
+                    graph.DrawString(c3, font, XBrushes.Black, new XRect(160, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormat.TopLeft);
+                    graph.DrawString(c4, font, XBrushes.Black, new XRect(220, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormat.TopLeft);
+                    graph.DrawString(c5, font, XBrushes.Black, new XRect(300, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormat.TopLeft);
+                    graph.DrawString(c6, font, XBrushes.Black, new XRect(340, yPoint, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormat.TopLeft);
+
+                    yPoint = yPoint + 20;
+                }
+                string pdfFilename = "test.pdf";
+                pdf.Save(pdfFilename);
+                Process.Start(pdfFilename);
+            }
+            catch (Exception)
+            {
+                Assert.AreEqual(resEsperado, "ERROR");
+            }            
+            Assert.AreEqual(resEsperado, "ok");
         }
 
         [TestMethod]

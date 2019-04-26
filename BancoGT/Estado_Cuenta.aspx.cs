@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using iTextSharp.text;
-using iTextSharp.text.html;
 using iTextSharp.text.pdf;
 using iTextSharp.text.html.simpleparser;
 using System.IO;
@@ -36,7 +32,7 @@ namespace BancoGT
                 {
                     for (int f = 0; f < row.ItemArray.Count(); f++)
                     {
-                        Console.Write(row.ItemArray.ElementAt(f));
+                        Console.Write(" "+row.ItemArray.ElementAt(f));
                     }
                     Console.WriteLine(" - - -");
                 }
@@ -47,6 +43,13 @@ namespace BancoGT
             }
             Console.WriteLine("****************************************************");
             return "ok";
+        }
+
+        public DataSet imprimirTEST(string ccuenta)
+        {            
+            ds = op.EstadoCuenta(Convert.ToInt32(ccuenta));
+            return ds;
+            
         }
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
