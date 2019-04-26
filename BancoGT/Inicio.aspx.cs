@@ -196,6 +196,21 @@ namespace BancoGT
             }
         }
 
+        public String iniciar_sesion_Test(String usu,String contra,String codigo)
+        {
+            String retorno = "si";
+            DataSet ds = new DataSet();
+            ds = op.consultar_usuario(usu, contra, Convert.ToInt32(codigo));
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                retorno = "si";
+            }
+            else
+            {
+                retorno = "Usuario o Password incorrecta";
+            }
+            return retorno;
+        }
 
 
     }

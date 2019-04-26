@@ -58,11 +58,22 @@ namespace PruebasUnitarias
         public void Login_Test()
         {
             Inicio i = new Inicio();
-            var n1 = "Cliente1";
-            var n2 = "12345678";
+            var usuario = "Cliente1";
+            var pass = "12345678";
+            var codigo = "2";
             string resEsperado = "si";
 
-            var resObtenido = i.CrearUsuarioTest(n1, n2);
+            var resObtenido = i.iniciar_sesion_Test(usuario,pass,codigo);
+
+            if (!resEsperado.Equals(resObtenido))
+            {
+                concat("");
+                concat("***************************************************");
+                concat("TEST LOGIN FALLO");
+                concat("Motivo: " + resObtenido);
+                concat("***************************************************");
+                concat("");
+            }
             Assert.AreEqual(resEsperado, resObtenido);
             concat("prueba2");
         }
