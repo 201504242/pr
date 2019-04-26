@@ -27,6 +27,8 @@ namespace BancoGT
 
         public object verficarEstadoTest(string ccuenta)
         {
+            Console.Write("*********************************************************");
+            Console.Write("Correlativa | Cuenta | Tipo | Monto | Movimiento | Fecha");
             try
             {
                 ds = op.EstadoCuenta(Convert.ToInt32(ccuenta));
@@ -43,6 +45,7 @@ namespace BancoGT
             {
                 return "";    
             }
+            Console.WriteLine("****************************************************");
             return "ok";
         }
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
