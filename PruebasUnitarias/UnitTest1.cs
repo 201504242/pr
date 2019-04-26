@@ -21,6 +21,17 @@ namespace PruebasUnitarias
         }
 
         [TestMethod]
+        public void verificarEstado_Test()
+        {
+            Estado_Cuenta i = new Estado_Cuenta();
+            var cuenta = "2";
+            var resEsperado = "";
+            var resObtenido = i.verficarEstadoTest(cuenta);
+            Console.WriteLine("ojla");
+            Assert.AreEqual(resEsperado, resObtenido);
+        }
+
+        [TestMethod]
         public void Debito_Test()
         {
             Debito i = new Debito();
