@@ -27,8 +27,8 @@ namespace BancoGT
 
         public object verficarEstadoTest(string ccuenta)
         {
-            Console.Write("*********************************************************");
-            Console.Write("Correlativa | Cuenta | Tipo | Monto | Movimiento | Fecha");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("Correlativa | Cuenta | Tipo | Monto | Movimiento | Fecha");
             try
             {
                 ds = op.EstadoCuenta(Convert.ToInt32(ccuenta));
@@ -38,7 +38,7 @@ namespace BancoGT
                     {
                         Console.Write(row.ItemArray.ElementAt(f));
                     }
-                    Console.WriteLine("");
+                    Console.WriteLine(" - - -");
                 }
             }
             catch (Exception)
