@@ -123,7 +123,7 @@ namespace BancoGT
             return vari;
         }
 
-        private void registro_click(object sender, EventArgs e)
+        public void registro_click(object sender, EventArgs e)
         {
             CrearUsuario();
         }

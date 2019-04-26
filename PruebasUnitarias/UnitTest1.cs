@@ -74,8 +74,7 @@ namespace PruebasUnitarias
                 concat("***************************************************");
                 concat("");
             }
-            Assert.AreEqual(resEsperado, resObtenido);
-            concat("prueba2");
+            Assert.AreEqual(resEsperado, resObtenido);            
         }
     }
 }
