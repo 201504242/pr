@@ -30,7 +30,11 @@ namespace BancoGT
             ds = op.EstadoCuenta(Convert.ToInt32(ccuenta));
             foreach (DataRow row in ds.Tables[0].Rows)
             {
-                Console.WriteLine( row[0]);
+                for (int f = 0; f < row.ItemArray.Count(); f++)
+                {
+                    Console.WriteLine(row.ItemArray.ElementAt(f));
+                }
+                    
             }
             return ds;
         }
