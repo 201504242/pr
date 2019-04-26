@@ -9,13 +9,15 @@ namespace PruebasUnitarias
     [TestClass]
     public class UnitTest1
     {
-        string fileName = @"result.txt";
-        public void crearArchivo(String textp)
+        string fileName = @"C:\Users\p_ab1\Desktop\Analisis\pr\PruebasUnitarias\result.txt";
+        public void concat(String textp)
         {
             using (StreamWriter fs = File.AppendText(fileName))
             {   
                 fs.WriteLine(textp);
+                fs.Close();
             }
+            
         }
 
 
@@ -38,9 +40,15 @@ namespace PruebasUnitarias
             var n1 = "Cliente";
             var n2 = "12345678";
             int resEsperado = 1;
-
             var resObtenido = i.CrearUsuarioTest(n1,n2);
+            if (resEsperado != resObtenido)
+            {
+                concat("***************************************************");
+                concat("TEST REGISTRO FALLO");
+                concat("***************************************************");
+            }
             Assert.AreEqual(resEsperado, resObtenido);
+            
         }
 
         [TestMethod]
@@ -53,6 +61,7 @@ namespace PruebasUnitarias
 
             var resObtenido = i.CrearUsuarioTest(n1, n2);
             Assert.AreEqual(resEsperado, resObtenido);
+            concat("prueba2");
         }
     }
 }
