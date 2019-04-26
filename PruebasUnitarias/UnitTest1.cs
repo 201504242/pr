@@ -26,7 +26,7 @@ namespace PruebasUnitarias
             Estado_Cuenta i = new Estado_Cuenta();
             var cuenta = "2";
             var resEsperado = "ok";
-            Console.Write("Correlativa | Cuenta | Tipo | Monto | Movimiento | Fecha");
+            
             var resObtenido = i.verficarEstadoTest(cuenta);
             
             Assert.AreEqual(resEsperado, resObtenido);
