@@ -1,24 +1,12 @@
 
 ***************************************************
-TEST CONSULTAR SALDO FALLO
-Motivo: No existe usuario o no tiene un saldo de 0
+TEST TRANSFERENCIA FALLO
+Motivo: e
 ***************************************************
 
 
 ***************************************************
-TEST CONSULTAR SALDO FALLO
-Motivo: No existe usuario o no tiene un saldo de 0
-***************************************************
-
-
-***************************************************
-TEST CONSULTAR SALDO FALLO
-Motivo: No existe usuario o no tiene un saldo de 0
-***************************************************
-
-
-***************************************************
-TEST CONSULTAR SALDO FALLO
-Motivo: No existe usuario o no tiene un saldo de 0
+TEST TRANSFERENCIA FALLO
+Motivo: Error, la cuenta no existe
 ***************************************************
 

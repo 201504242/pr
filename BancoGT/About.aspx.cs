@@ -15,7 +15,41 @@ namespace BancoGT
         {
 
         }
+        public String transTest(string cuentaOrigen,string monto,string cuentaDestino)
+        {
+            String ret = "e";
+            DataSet ds2 = new DataSet();
+            DataSet ds1 = new DataSet();
+            string ccuenta = cuentaOrigen;
+            ds2 = op.saldoMayor(Convert.ToInt32(ccuenta), Convert.ToDecimal(monto));
+            ds1 = op.consultar_cuenta(Convert.ToInt32(cuentaDestino));
+            if (Convert.ToInt32(monto) > 0)
+            {
+                if (ds1.Tables[0].Rows.Count > 0)
+                {
+                    if (Convert.ToInt32(ds2.Tables[0].Rows[0][0]) >= 0)
+                    {
+                        DataSet ds = new DataSet();
+                        ds = op.transferir(Convert.ToDecimal(monto), Convert.ToInt32(cuentaDestino), Convert.ToInt32(ccuenta));
+                        ret = ("Exito!");
+                    }
+                    else
+                    {
+                        ret = ("Error, el monto es mayor que el saldo actual");                        
+                    }
+                }
+                else
+                {
+                    ret = ("Error, la cuenta no existe");
+                }
 
+            }
+            else
+            {
+                ret = ("Error, la cuenta no existe");
+            }
+            return ret;
+        }
         protected void trans_click(object sender, EventArgs e)
         {            
             DataSet ds2 = new DataSet();

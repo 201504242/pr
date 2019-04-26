@@ -78,6 +78,29 @@ namespace PruebasUnitarias
         }
 
         [TestMethod]
+        public void Transferencia_Test()
+        {
+            About i = new About();
+            var cuentaOrigen = "1";
+            var cuentaDestino = "2";
+            var monto = "33";
+            string resEsperado = "Exito!";
+
+            var resObtenido = i.transTest(cuentaOrigen, monto, cuentaDestino);
+
+            if (!resEsperado.Equals(resObtenido))
+            {
+                concat("");
+                concat("***************************************************");
+                concat("TEST TRANSFERENCIA FALLO");
+                concat("Motivo: " + resObtenido);
+                concat("***************************************************");
+                concat("");
+            }
+            Assert.AreEqual(resEsperado, resObtenido);
+        }
+
+        [TestMethod]
         public void consultarSaldo_Test()
         {
             Inicio i = new Inicio();
@@ -91,7 +114,7 @@ namespace PruebasUnitarias
                 concat("");
                 concat("***************************************************");
                 concat("TEST CONSULTAR SALDO FALLO");
-                concat("Motivo: No existe usuario o no tiene un saldo de 0");
+                concat("Motivo: No existe usuario o no tiene ningun saldo");
                 concat("***************************************************");
                 concat("");
             }            
