@@ -23,7 +23,7 @@ namespace PruebasUnitarias
         public void Registro_Test()
         {
             Inicio i = new Inicio();
-            var n1 = "Cliente1";
+            var n1 = "Cliente";
             var n2 = "12345678";
             int resEsperado = 1;
 
